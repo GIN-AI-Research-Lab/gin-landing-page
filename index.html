@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIN AI Research Lab | gin.info.vn — Sovereign Edge AI & Human-Centric Systems</title>
+    <meta name="description" content="Independent AI research lab pioneering 1.58-bit edge architectures, full-duplex multimodal tutoring agents, developer FinOps for Claude Code, and sovereign digital health.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            500: '#10b981',
+                            600: '#059669',
+                            DEFAULT: '#10b981',
+                        },
+                        claude: {
+                            500: '#d97706',
+                            600: '#b45309',
+                            light: '#f59e0b',
+                        },
+                        dark: {
+                            bg: '#08090D',
+                            card: '#0F111A',
+                            border: '#1F2433',
+                            hover: '#181C2B',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glow-emerald {
+            box-shadow: 0 0 50px -10px rgba(16, 185, 129, 0.2);
+        }
+        .glow-amber {
+            box-shadow: 0 0 50px -10px rgba(245, 158, 11, 0.2);
+        }
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+    </style>
+</head>
+<body class="bg-[#08090D] text-slate-200 font-sans antialiased selection:bg-emerald-500 selection:text-black">
+
+    <!-- Top Announcement Bar -->
+    <div class="border-b border-dark-border bg-dark-card/60 backdrop-blur-md px-4 py-2 text-center text-xs font-medium text-slate-400">
+        <span class="inline-flex items-center gap-1.5 text-amber-400">
+            <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+            Anthropic / Claude Code Ecosystem Initiative
+        </span>
+        <span class="mx-2 text-slate-600">•</span>
+        Seeking Seed Grants, Cloud Compute Partnerships & Research Fellowships
+    </div>
+
+    <!-- Navigation -->
+    <header class="sticky top-0 z-50 backdrop-blur-xl bg-dark-bg/80 border-b border-dark-border/80">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center font-bold text-dark-bg text-xl shadow-lg group-hover:scale-105 transition-transform">
+                    G
+                </div>
+                <div>
+                    <div class="font-bold text-white tracking-tight flex items-center gap-1.5 text-lg">
+                        GIN LAB <span class="text-xs px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-mono">gin.info.vn</span>
+                    </div>
+                    <div class="text-[11px] text-slate-400 font-medium">Applied AI & Sovereign Edge Systems</div>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#mission" class="hover:text-emerald-400 transition-colors">Mission</a>
+                <a href="#pillars" class="hover:text-emerald-400 transition-colors">Research Pillars</a>
+                <a href="#projects" class="hover:text-emerald-400 transition-colors">Portfolio</a>
+                <a href="#claude-synergy" class="hover:text-amber-400 transition-colors flex items-center gap-1.5">
+                    <i data-lucide="sparkles" class="w-4 h-4 text-amber-400"></i> Claude Synergy
+                </a>
+                <a href="#grant-plan" class="hover:text-emerald-400 transition-colors">Grant Roadmap</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <a href="https://github.com/trituenguyen97" target="_blank" class="p-2.5 rounded-lg border border-dark-border bg-dark-card hover:bg-dark-hover text-slate-300 hover:text-white transition-all">
+                    <i data-lucide="github" class="w-5 h-5"></i>
+                </a>
+                <a href="#contact" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-dark-bg font-semibold text-sm transition-all shadow-md shadow-emerald-500/20">
+                    <span>Contact Founder</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-24 pb-20 overflow-hidden bg-grid">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#08090D]/80 to-[#08090D] pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-medium mb-6">
+                    <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+                    <span>Sovereign Intelligence • Zero Cloud Lock-In • Empirical Rigor</span>
+                </div>
+                <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-[1.15] mb-6">
+                    Pioneering <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-300 bg-clip-text text-transparent">Extreme Edge AI</span>, Full-Duplex Agents & FinOps.
+                </h1>
+                <p class="text-lg sm:text-xl text-slate-300 font-normal leading-relaxed mb-10">
+                    <strong class="text-white">GIN AI Research</strong> (<a href="https://gin.info.vn" class="text-emerald-400 hover:underline">gin.info.vn</a>) is an independent laboratory engineering from-scratch 1.58-bit ternary neural models, real-time autonomous multimodal tutoring classrooms, privacy-first healthcare companions, and the observability FinOps engine for the <strong>Claude Code</strong> developer ecosystem.
+                </p>
+
+                <div class="flex flex-wrap items-center gap-4">
+                    <a href="#projects" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-dark-bg font-bold text-sm shadow-xl shadow-emerald-500/20 flex items-center gap-2 transition-all">
+                        <span>Explore Research Portfolio</span>
+                        <i data-lucide="layers" class="w-4 h-4"></i>
+                    </a>
+                    <a href="#claude-synergy" class="px-6 py-3.5 rounded-xl border border-dark-border bg-dark-card hover:bg-dark-hover text-white font-medium text-sm flex items-center gap-2 transition-all">
+                        <i data-lucide="sparkles" class="w-4 h-4 text-amber-400"></i>
+                        <span>Claude Code Startup Proposal</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Empirical Highlight Cards -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="p-5 rounded-2xl border border-dark-border bg-dark-card/80 backdrop-blur-sm">
+                    <div class="text-2xl sm:text-3xl font-mono font-bold text-emerald-400">~350 tok/s</div>
+                    <div class="text-xs font-semibold text-white mt-1">CPU-Native 1.58-bit Translation</div>
+                    <div class="text-[11px] text-slate-400 mt-1">BitNet b1.58 in 77.56MB GGUF (No GPU required)</div>
+                </div>
+                <div class="p-5 rounded-2xl border border-dark-border bg-dark-card/80 backdrop-blur-sm">
+                    <div class="text-2xl sm:text-3xl font-mono font-bold text-amber-400">110 Lessons</div>
+                    <div class="text-xs font-semibold text-white mt-1">Autonomous Multimodal Sensei</div>
+                    <div class="text-[11px] text-slate-400 mt-1">Kana to N1 with full-duplex barge-in & DOM actions</div>
+                </div>
+                <div class="p-5 rounded-2xl border border-dark-border bg-dark-card/80 backdrop-blur-sm">
+                    <div class="text-2xl sm:text-3xl font-mono font-bold text-cyan-400">Prompt Caching</div>
+                    <div class="text-xs font-semibold text-white mt-1">Claude FinOps Governance</div>
+                    <div class="text-[11px] text-slate-400 mt-1">USD savings tracking & tool Sankey flow for Claude Code</div>
+                </div>
+                <div class="p-5 rounded-2xl border border-dark-border bg-dark-card/80 backdrop-blur-sm">
+                    <div class="text-2xl sm:text-3xl font-mono font-bold text-rose-400">100% Offline</div>
+                    <div class="text-xs font-semibold text-white mt-1">Sovereign Maternal & Child Health</div>
+                    <div class="text-[11px] text-slate-400 mt-1">Flutter PWA with 97 tests, WHO percentiles & EPDS scale</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Pillars Section -->
+    <section id="pillars" class="py-24 border-t border-dark-border bg-dark-bg/60">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-xs font-mono uppercase tracking-widest text-emerald-400 mb-3">Core Research Vectors</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Four Pillars of Sovereign Intelligence</h3>
+                <p class="text-slate-400 text-sm mt-3">We focus on hard engineering problems: reducing compute footprint, sovereign local privacy, and aligning high-reasoning agents with practical human workflows.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Pillar 1 -->
+                <div class="p-6 rounded-2xl border border-dark-border bg-dark-card hover:border-emerald-500/40 transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                            <i data-lucide="binary" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-white mb-2">1. Extreme Low-Bit & Edge AI</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                            Training from-scratch 1.58-bit ternary architectures with Quantization-Aware Training (QAT) and Straight-Through Estimators (STE). Delivering near-lossless inference at ~350 tok/s on standard laptop CPUs with a tiny 78 MB RAM footprint.
+                        </p>
+                    </div>
+                    <div class="font-mono text-[11px] text-emerald-400/80 pt-3 border-t border-dark-border">
+                        Project: Bit-Translate
+                    </div>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="p-6 rounded-2xl border border-dark-border bg-dark-card hover:border-amber-500/40 transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                            <i data-lucide="mic" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-white mb-2">2. Full-Duplex Multimodal Agents</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                            Engineering synchronous browser-based classrooms with sub-second voice activity interruption (Barge-in VAD), interleaved pedagogical reasoning, and autonomous DOM tool calling that drives visual slides, lip syncing, and stroke animations.
+                        </p>
+                    </div>
+                    <div class="font-mono text-[11px] text-amber-400/80 pt-3 border-t border-dark-border">
+                        Project: AI Live Sensei
+                    </div>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="p-6 rounded-2xl border border-dark-border bg-dark-card hover:border-cyan-500/40 transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                            <i data-lucide="activity" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-white mb-2">3. AI FinOps & Agent Governance</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                            Deep lifecycle hooks telemetry and cost analytics built natively for Claude Code. Measuring token burn, quantifying Anthropic Prompt Caching savings in USD, visualizing tool sequence Sankeys, and enforcing zero-prompt privacy.
+                        </p>
+                    </div>
+                    <div class="font-mono text-[11px] text-cyan-400/80 pt-3 border-t border-dark-border">
+                        Project: KS-Dashboard
+                    </div>
+                </div>
+
+                <!-- Pillar 4 -->
+                <div class="p-6 rounded-2xl border border-dark-border bg-dark-card hover:border-rose-500/40 transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                            <i data-lucide="heart-pulse" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-white mb-2">4. Sovereign Digital Health</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                            Evidence-informed maternal and child health research. 100% offline-first PWA, clinical growth percentile calculators, CDC milk-stash management, Edinburgh Postnatal Depression Scale (EPDS) screening, and zero third-party tracking.
+                        </p>
+                    </div>
+                    <div class="font-mono text-[11px] text-rose-400/80 pt-3 border-t border-dark-border">
+                        Project: GinBaby
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Portfolio Section -->
+    <section id="projects" class="py-24 border-t border-dark-border">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div>
+                    <h2 class="text-xs font-mono uppercase tracking-widest text-emerald-400 mb-3">Live Projects & Prototypes</h2>
+                    <h3 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Active Research Portfolio</h3>
+                    <p class="text-slate-400 text-sm mt-2">Every project is an open-source, verifiable, production-grade working implementation.</p>
+                </div>
+                <div class="flex items-center gap-2 text-xs font-mono bg-dark-card p-1.5 rounded-xl border border-dark-border">
+                    <span class="px-3 py-1.5 rounded-lg bg-emerald-500/20 text-emerald-400 font-semibold">5 Active Systems</span>
+                    <span class="px-3 py-1.5 text-slate-400">All Code Open & Tested</span>
+                </div>
+            </div>
+
+            <div class="space-y-16">
+                
+                <!-- Project 1: AI Live Sensei Classroom -->
+                <div class="p-8 sm:p-10 rounded-3xl border border-dark-border bg-dark-card relative overflow-hidden group">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-7">
+                            <div class="flex flex-wrap items-center gap-2 mb-4">
+                                <span class="px-3 py-1 rounded-full text-xs font-mono font-medium bg-amber-500/10 text-amber-400 border border-amber-500/20">EdTech Multimodal AI</span>
+                                <span class="px-3 py-1 rounded-full text-xs font-mono font-medium bg-slate-800 text-slate-300">110 Lessons Kana→N1</span>
+                                <span class="px-3 py-1 rounded-full text-xs font-mono font-medium bg-slate-800 text-slate-300">Full-Duplex VAD</span>
+                            </div>
+                            <h4 class="text-2xl sm:text-3xl font-extrabold text-white mb-3">
+                                AI Live Sensei Classroom
+                            </h4>
+                            <p class="text-sm text-slate-300 leading-relaxed mb-6">
+                                An autonomous browser-based classroom delivering synchronous 1-on-1 human-grade language tutoring. Features bidirectional streaming audio (16kHz in, 24kHz out), sub-second natural interruption (Barge-in VAD), interleaved pedagogical reasoning stream, and autonomous DOM tool-calling agent (<code class="text-amber-300 text-xs">change_slide</code>, <code class="text-amber-300 text-xs">highlight_element</code>, <code class="text-amber-300 text-xs">mark_error</code>). Over 1,500+ generated lesson illustrations and 28 lip-synced characters.
+                            </p>
+                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6 font-mono text-xs">
+                                <div class="p-3 rounded-xl bg-dark-bg/60 border border-dark-border">
+                                    <div class="text-slate-400 text-[10px]">Turnaround VAD</div>
+                                    <div class="font-bold text-amber-400 text-sm mt-0.5">&lt; 1.0s Interruption</div>
+                                </div>
+                                <div class="p-3 rounded-xl bg-dark-bg/60 border border-dark-border">
+                                    <div class="text-slate-400 text-[10px]">Curriculum Scale</div>
+                                    <div class="font-bold text-white text-sm mt-0.5">110 Lessons (N5–N1)</div>
+                                </div>
+                                <div class="p-3 rounded-xl bg-dark-bg/60 border border-dark-border">
+                                    <div class="text-slate-400 text-[10px]">Visual Pipeline</div>
+                                    <div class="font-bold text-white text-sm mt-0.5">Automated 1080p Video</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <a href="https://github.com/trituenguyen97/ai-live-sensei-classroom" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-slate-200 text-dark-bg font-bold text-xs transition-all">
+                                    <i data-lucide="github" class="w-4 h-4"></i>
+                                    <span>Explore Repository</span>
+                                </a>
+                                <span class="text-xs text-slate-400 font-mono">MIT / Custom License</span>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-5">
+                            <div class="rounded-2xl overflow-hidden border border-dark-border bg-black shadow-2xl relative">
+                                <img src="assets/demo-s.gif" alt="AI Live Sensei Classroom Live Demo" class="w-full object-cover">
+                                <div class="absolute bottom-2 right-2 px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md text-[10px] text-amber-400 font-mono border border-amber-500/20">
+                                    Live Stage Engine (Bảng đen)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Bit-Translate -->
+                <div class="p-8 sm:p-10 rounded-3xl border border-dark-border bg-dark-card relative overflow-hidden group">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-7">
+                            <div class="flex flex-wrap items-center gap-2 mb-4">
+                                <span class="px-3 py-1 rounded-full text-xs font-mono font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Extreme Edge AI</span>
+                                <span class="px-3 py-1 rounded-full text-xs font-mono font-medium bg-slate-800 text-slate-300">1.58-Bit Ternary Weights</span>
+                                <span class="px-3 py-1 rounded-full text-xs font-mono font-medium bg-slate-800 text-slate-300">No GPU Required</span>
+                            </div>
+                            <h4 class="text-2xl sm:text-3xl font-extrabold text-white mb-3">
+                                Bit-Translate: 1.58-Bit Neural MT
+                            </h4>
+                            <p class="text-sm text-slate-300 leading-relaxed mb-6">
+                                From-scratch 1.58-bit ternary weight ({-1, 0, +1}) Neural Machine Translation (Japanese ↔ Vietnamese) based on the BitNet b1.58 architecture. 152.1M parameters trained on 15.98M parallel pairs and compressed down to a <strong>77.56 MB GGUF binary</strong>. Runs at ~350 tokens/sec on standard laptop CPUs with only ~125 MB working RAM.
+                            </p>
+                            
+                            <!-- Empirical Benchmark Table -->
+                            <div class="border border-dark-border rounded-xl overflow-hidden mb-6 text-xs font-mono">
+                                <table class="w-full text-left">
+                                    <thead class="bg-dark-bg/80 text-slate-400 border-b border-dark-border">
+                                        <tr>
+                                            <th class="p-2.5">Model / System</th>
+                                            <th class="p-2.5">Accuracy (Score 2)</th>
+                                            <th class="p-2.5">Speed (CPU)</th>
+                                            <th class="p-2.5">Size / RAM</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-dark-border/60 text-slate-300">
+                                        <tr class="bg-emerald-500/5">
+                                            <td class="p-2.5 font-bold text-emerald-400">Bit-Translate v7a i2s</td>
+                                            <td class="p-2.5 font-bold text-white">78.5%</td>
+                                            <td class="p-2.5 text-emerald-400 font-bold">~350 tok/s</td>
+                                            <td class="p-2.5">77.56 MB / ~125 MB</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2.5">Google Translate Cloud</td>
+                                            <td class="p-2.5 text-slate-400">69.0%</td>
+                                            <td class="p-2.5 text-slate-400">Cloud API Latency</td>
+                                            <td class="p-2.5 text-slate-400">Cloud Bound</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="flex items-center gap-4">
+                                <a href="https://github.com/trituenguyen97/Bit-Translate" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-slate-200 text-dark-bg font-bold text-xs transition-all">
+                                    <i data-lucide="github" class="w-4 h-4"></i>
+                                    <span>Explore Repository</span>
+                                </a>
+                                <span class="text-xs text-slate-400 font-mono">GGUF i2_s Deployable</span>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-5">
+                            <div class="p-6 rounded-2xl border border-dark-border bg-dark-bg/80 font-mono text-xs">
+                                <div class="text-emerald-400 font-bold mb-3 flex items-center gap-2">
+                                    <i data-lucide="terminal" class="w-4 h-4"></i>
+                                    <span>Verified Physical Profiling</span>
+                                </div>
+                                <div class="space-y-2 text-slate-300 text-[11px]">
+                                    <div><span class="text-slate-500">• Layers:</span> 18 (d_model=768, FFN=2048, 12 heads)</div>
+                                    <div><span class="text-slate-500">• Training:</span> 15,986,646 sentence pairs (951M tokens)</div>
+                                    <div><span class="text-slate-500">• Quantization:</span> QAT + Straight-Through Estimators</div>
+                                    <div><span class="text-slate-500">• Blind Judge:</span> Opus 5 evaluation on 200 held-out pairs</div>
+                                    <div><span class="text-slate-500">• Difficult Idiom Set:</span> 39W - 7L (85% win rate)</div>
+                                    <div><span class="text-slate-500">• Extreme Floor Check:</span> PTQ &lt;2.5 bpw collapses PPL to 11,340</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: KS-Dashboard (Claude Code Synergy Flagship) -->
+                <div class="p-8 sm:p-10 rounded-3xl border border-amber-500/30 bg-gradient-to-br from-dark-card via-dark-card to-amber-950/10 relative overflow-hidden group glow-amber">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-7">
+                            <div class="flex flex-wrap items-center gap-2 mb-4">
+                                <span class="px-3 py-1 rounded-full text-xs font-mono font-medium bg-amber-500/10 text-amber-400 border border-amber-500/30">Claude Code Ecosystem</span>
+                                <span class="px-3 py-1 rounded-full text-xs font-mono font-medium bg-slate-800 text-slate-300">AI FinOps & Observability</span>
+                                <span class="px-3 py-1 rounded-full text-xs font-mono font-medium bg-emerald-500/10 text-emerald-400">Zero-Prompt Privacy</span>
+                            </div>
+                            <h4 class="text-2xl sm:text-3xl font-extrabold text-white mb-3 flex items-center gap-2">
+                                KS-Dashboard: Claude Code FinOps & Governance
+                            </h4>
+                            <p class="text-sm text-slate-300 leading-relaxed mb-6">
+                                A self-hosted enterprise control center built specifically for <strong>Claude Code</strong> and AI coding agent fleets. Hooks directly into Claude Code CLI lifecycle events (<code class="text-amber-300 text-xs">SessionStart</code>, <code class="text-amber-300 text-xs">PreToolUse</code>, <code class="text-amber-300 text-xs">PostToolUse</code>, <code class="text-amber-300 text-xs">Stop</code>). Tracks token burn, computes real USD savings from <strong>Anthropic Prompt Caching</strong>, visualizes tool transition Sankeys, and tracks engineer adoption—all without ever capturing prompt content or corporate source code.
+                            </p>
+                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6 font-mono text-xs">
+                                <div class="p-3 rounded-xl bg-dark-bg/60 border border-dark-border">
+                                    <div class="text-slate-400 text-[10px]">Prompt Cache ROI</div>
+                                    <div class="font-bold text-amber-400 text-sm mt-0.5">Exact USD Computed</div>
+                                </div>
+                                <div class="p-3 rounded-xl bg-dark-bg/60 border border-dark-border">
+                                    <div class="text-slate-400 text-[10px]">Real-Time Monitor</div>
+                                    <div class="font-bold text-cyan-400 text-sm mt-0.5">SSE Live Event Bus</div>
+                                </div>
+                                <div class="p-3 rounded-xl bg-dark-bg/60 border border-dark-border">
+                                    <div class="text-slate-400 text-[10px]">Enterprise SSO</div>
+                                    <div class="font-bold text-white text-sm mt-0.5">Microsoft Entra ID + AMIS</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <a href="https://github.com/trituenguyen97/KS-Dashboard" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-dark-bg font-bold text-xs transition-all">
+                                    <i data-lucide="github" class="w-4 h-4"></i>
+                                    <span>Explore Repository</span>
+                                </a>
+                                <span class="text-xs text-slate-400 font-mono">Next.js 16 + Prisma 6</span>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-5">
+                            <div class="p-6 rounded-2xl border border-dark-border bg-dark-bg/90 font-mono text-xs space-y-3">
+                                <div class="text-amber-400 font-bold flex items-center justify-between">
+                                    <span>Claude Code Hook Telemetry</span>
+                                    <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400">OTEL_LOG_USER_PROMPTS=0</span>
+                                </div>
+                                <div class="p-3 rounded-lg bg-black/60 border border-dark-border text-[11px] text-slate-300">
+                                    <code>
+                                        SessionStart ➔ ToolExecution ➔ CostEngine<br>
+                                        • Token Input / Output Breakdown<br>
+                                        • Cache Creation vs. Cache Read Hits<br>
+                                        • Tool Latency Percentiles (P50/P90/P99)<br>
+                                        • Task Classification (Debug/Code/Plan)
+                                    </code>
+                                </div>
+                                <div class="text-[11px] text-slate-400">
+                                    Guarantees zero corporate intellectual property retention while giving CFOs and engineering directors complete control over model spend.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: TransX -->
+                <div class="p-8 sm:p-10 rounded-3xl border border-dark-border bg-dark-card relative overflow-hidden group">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-7">
+                            <div class="flex flex-wrap items-center gap-2 mb-4">
+                                <span class="px-3 py-1 rounded-full text-xs font-mono font-medium bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">Sovereign Edge Computing</span>
+                                <span class="px-3 py-1 rounded-full text-xs font-mono font-medium bg-slate-800 text-slate-300">100% Offline / Air-Gapped</span>
+                                <span class="px-3 py-1 rounded-full text-xs font-mono font-medium bg-slate-800 text-slate-300">Windows Transparent Overlay</span>
+                            </div>
+                            <h4 class="text-2xl sm:text-3xl font-extrabold text-white mb-3">
+                                TransX: Sovereign Edge Speech Overlay
+                            </h4>
+                            <p class="text-sm text-slate-300 leading-relaxed mb-6">
+                                A desktop translation overlay engineered for high-security, defense, and confidential corporate boardrooms. Completely air-gapped: zero external HTTP calls during inference. Combines local Faster-Whisper (CTranslate2 INT8, 2–4x faster than whisper.cpp) with NLLB-200 INT8 (~594 MB) via an English pivot and contextual sliding-window accumulation.
+                            </p>
+                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6 font-mono text-xs">
+                                <div class="p-3 rounded-xl bg-dark-bg/60 border border-dark-border">
+                                    <div class="text-slate-400 text-[10px]">Audio Capture</div>
+                                    <div class="font-bold text-cyan-400 text-sm mt-0.5">WASAPI Loopback</div>
+                                </div>
+                                <div class="p-3 rounded-xl bg-dark-bg/60 border border-dark-border">
+                                    <div class="text-slate-400 text-[10px]">RAM Footprint</div>
+                                    <div class="font-bold text-white text-sm mt-0.5">~900 MB (Whisper+NLLB)</div>
+                                </div>
+                                <div class="p-3 rounded-xl bg-dark-bg/60 border border-dark-border">
+                                    <div class="text-slate-400 text-[10px]">Security Tier</div>
+                                    <div class="font-bold text-emerald-400 text-sm mt-0.5">Zero Telemetry</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <a href="https://github.com/trituenguyen97/TransX" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-slate-200 text-dark-bg font-bold text-xs transition-all">
+                                    <i data-lucide="github" class="w-4 h-4"></i>
+                                    <span>Explore Repository</span>
+                                </a>
+                                <span class="text-xs text-slate-400 font-mono">MIT License</span>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-5">
+                            <div class="p-6 rounded-2xl border border-dark-border bg-dark-bg/80 font-mono text-xs">
+                                <div class="text-cyan-400 font-bold mb-3 flex items-center gap-2">
+                                    <i data-lucide="layers" class="w-4 h-4"></i>
+                                    <span>Linguistic Gating Parameters</span>
+                                </div>
+                                <div class="space-y-2 text-slate-300 text-[11px]">
+                                    <div><span class="text-slate-500">• Japanese (SOV):</span> chunkMaxMs=10s, silenceMs=600ms</div>
+                                    <div><span class="text-slate-500">• English/VI (SVO):</span> chunkMaxMs=8s, silenceMs=1000ms</div>
+                                    <div><span class="text-slate-500">• Syntactic Gating:</span> SentenceAccumulator terminal flush</div>
+                                    <div><span class="text-slate-500">• Pivot Route:</span> JP ➔ [beam=6] ➔ EN ➔ [beam=4, ctx] ➔ VI</div>
+                                    <div><span class="text-slate-500">• Hotkey:</span> Ctrl+Shift+T with click-through overlay</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: GinBaby -->
+                <div class="p-8 sm:p-10 rounded-3xl border border-dark-border bg-dark-card relative overflow-hidden group">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-7">
+                            <div class="flex flex-wrap items-center gap-2 mb-4">
+                                <span class="px-3 py-1 rounded-full text-xs font-mono font-medium bg-rose-500/10 text-rose-400 border border-rose-500/20">Digital Health Research</span>
+                                <span class="px-3 py-1 rounded-full text-xs font-mono font-medium bg-slate-800 text-slate-300">Flutter 3.47 PWA & iOS</span>
+                                <span class="px-3 py-1 rounded-full text-xs font-mono font-medium bg-emerald-500/10 text-emerald-400">Offline-First Private</span>
+                            </div>
+                            <h4 class="text-2xl sm:text-3xl font-extrabold text-white mb-3 flex items-center gap-3">
+                                <img src="assets/ginbaby-icon.png" alt="GinBaby" class="w-8 h-8 rounded-lg">
+                                <span>GinBaby: Maternal & Pediatric Companion</span>
+                            </h4>
+                            <p class="text-sm text-slate-300 leading-relaxed mb-6">
+                                A calm, private, evidence-informed parenting and digital health research companion. 15.6k lines of Dart with 97 passing automated tests. Built specifically for pumping mothers (dual-side timer, CDC milk stash, estimated direct latch). Features drag-to-fill bottle with AAP citations, EASY routine nap engine, WHO 2006 growth percentiles, and Edinburgh Postnatal Depression Scale (EPDS) self-screening. Zero ads, zero tracking, all data stays on device.
+                            </p>
+                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6 font-mono text-xs">
+                                <div class="p-3 rounded-xl bg-dark-bg/60 border border-dark-border">
+                                    <div class="text-slate-400 text-[10px]">Test Suite</div>
+                                    <div class="font-bold text-emerald-400 text-sm mt-0.5">97 Tests Passing</div>
+                                </div>
+                                <div class="p-3 rounded-xl bg-dark-bg/60 border border-dark-border">
+                                    <div class="text-slate-400 text-[10px]">Clinical Standards</div>
+                                    <div class="font-bold text-white text-sm mt-0.5">WHO 2006 + CDC + EPDS</div>
+                                </div>
+                                <div class="p-3 rounded-xl bg-dark-bg/60 border border-dark-border">
+                                    <div class="text-slate-400 text-[10px]">Design System</div>
+                                    <div class="font-bold text-rose-400 text-sm mt-0.5">Watercolour Art (~50 assets)</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <a href="https://github.com/trituenguyen97/ginbaby" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-slate-200 text-dark-bg font-bold text-xs transition-all">
+                                    <i data-lucide="github" class="w-4 h-4"></i>
+                                    <span>Explore Repository</span>
+                                </a>
+                                <span class="text-xs text-slate-400 font-mono">PWA Installable</span>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-5">
+                            <div class="rounded-2xl overflow-hidden border border-dark-border bg-black shadow-2xl relative flex items-center justify-center p-2">
+                                <img src="assets/ginbaby-demo.gif" alt="GinBaby Demo" class="max-h-[380px] rounded-xl object-contain">
+                                <div class="absolute bottom-4 right-4 px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md text-[10px] text-rose-400 font-mono border border-rose-500/20">
+                                    Flutter PWA Interactive Flow
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Claude Code & Anthropic Synergy Section -->
+    <section id="claude-synergy" class="py-24 border-t border-dark-border bg-gradient-to-b from-[#08090D] via-amber-950/10 to-[#08090D] relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-400 text-xs font-mono mb-4">
+                    <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                    <span>Claude Code Startup Program Proposal</span>
+                </div>
+                <h3 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+                    Why Backing GIN Lab Directly Accelerates the Claude Ecosystem
+                </h3>
+                <p class="text-slate-300 text-sm sm:text-base mt-4">
+                    We aren't just consumers of AI APIs—we build mission-critical open-source infrastructure and real-world sovereign applications that make developer and enterprise adoption of Claude frictionless, accountable, and cost-efficient.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-8 rounded-2xl border border-dark-border bg-dark-card/90">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center mb-6">
+                        <i data-lucide="shield-check" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Enterprise Governance for Claude Code</h4>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Through <strong>KS-Dashboard</strong>, we remove the #1 barrier to enterprise Claude Code adoption: runaway token costs and lack of auditability. By tracking Prompt Caching ROI down to the dollar and visualizing tool loops with zero prompt retention, we make corporate IT and CFOs comfortable deploying Claude Code at enterprise scale.
+                    </p>
+                </div>
+
+                <div class="p-8 rounded-2xl border border-dark-border bg-dark-card/90">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mb-6">
+                        <i data-lucide="brain-circuit" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Frontier Reasoning Distillation</h4>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        We leverage Claude Opus and Sonnet as state-of-the-art teacher models and blind evaluation judges for extreme edge distillation (as proven in <strong>Bit-Translate</strong> and <strong>AI Live Sensei</strong>), showing how frontier reasoning powers sovereign sub-100MB edge intelligence without compromise.
+                    </p>
+                </div>
+
+                <div class="p-8 rounded-2xl border border-dark-border bg-dark-card/90">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center mb-6">
+                        <i data-lucide="terminal-square" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Community Plugin & Agentic Harnesses</h4>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        We actively design developer plugins, custom skills, and autonomous agent loops that push Claude Code from simple single-turn coding into multi-agent systems with verified feedback loops, automated regression suites, and live state visualization.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Planned Grant Capital Allocation -->
+    <section id="grant-plan" class="py-24 border-t border-dark-border bg-dark-bg">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="max-w-2xl mb-16">
+                <h2 class="text-xs font-mono uppercase tracking-widest text-emerald-400 mb-3">Venture & Grant Transparency</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Resource Allocation & 12-Month Milestones</h3>
+                <p class="text-slate-400 text-sm mt-3">We adhere to strict capital efficiency. Grant funding and compute credits are channeled directly into GPU training, clinical/pedagogical review, and open-source releases.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <div class="lg:col-span-7 border border-dark-border rounded-2xl bg-dark-card overflow-hidden">
+                    <div class="p-6 border-b border-dark-border">
+                        <h4 class="font-bold text-white text-base">Target Fund Allocation</h4>
+                    </div>
+                    <div class="divide-y divide-dark-border font-mono text-xs">
+                        <div class="p-4 flex items-center justify-between">
+                            <div>
+                                <div class="font-bold text-white">Cloud GPU Pretraining & Distillation Compute</div>
+                                <div class="text-[11px] text-slate-400 font-sans mt-0.5">Scaling Bit-Translate to 300M params & real-time audio voice quota</div>
+                            </div>
+                            <span class="text-emerald-400 font-bold text-sm">40%</span>
+                        </div>
+                        <div class="p-4 flex items-center justify-between">
+                            <div>
+                                <div class="font-bold text-white">Clinical & Pedagogical Auditing</div>
+                                <div class="text-[11px] text-slate-400 font-sans mt-0.5">Partnering with native Japanese linguists and paediatric clinicians for GinBaby</div>
+                            </div>
+                            <span class="text-amber-400 font-bold text-sm">25%</span>
+                        </div>
+                        <div class="p-4 flex items-center justify-between">
+                            <div>
+                                <div class="font-bold text-white">Multi-Agent Hub & NPU Kernel Engineering</div>
+                                <div class="text-[11px] text-slate-400 font-sans mt-0.5">Porting KS-Dashboard to Cursor/Aider and compiling ONNX/DirectML kernels for TransX</div>
+                            </div>
+                            <span class="text-cyan-400 font-bold text-sm">20%</span>
+                        </div>
+                        <div class="p-4 flex items-center justify-between">
+                            <div>
+                                <div class="font-bold text-white">Open-Source Maintenance & Documentation</div>
+                                <div class="text-[11px] text-slate-400 font-sans mt-0.5">Public benchmark suites, Helm charts, and reproducible pipelines</div>
+                            </div>
+                            <span class="text-purple-400 font-bold text-sm">15%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 p-6 rounded-2xl border border-dark-border bg-dark-card/60 space-y-4">
+                    <h4 class="font-bold text-white text-base flex items-center gap-2">
+                        <i data-lucide="milestone" class="w-5 h-5 text-emerald-400"></i>
+                        <span>12-Month Execution Roadmap</span>
+                    </h4>
+                    <div class="space-y-3 text-xs text-slate-300">
+                        <div class="p-3 rounded-xl bg-dark-bg/60 border border-dark-border">
+                            <span class="text-emerald-400 font-mono font-bold">Q1–Q2:</span>
+                            <span class="text-white font-semibold ml-1">Hosted Pilot & Distillation Scale.</span>
+                            <p class="text-[11px] text-slate-400 mt-1">Deploy multi-tenant hosted Sensei Classroom with accounts; train Bit-Translate 300M tier on expanded bilingual corpus.</p>
+                        </div>
+                        <div class="p-3 rounded-xl bg-dark-bg/60 border border-dark-border">
+                            <span class="text-amber-400 font-mono font-bold">Q3:</span>
+                            <span class="text-white font-semibold ml-1">Enterprise Claude FinOps Launch.</span>
+                            <p class="text-[11px] text-slate-400 mt-1">Publish KS-Dashboard Helm charts; release budget threshold webhooks and automated circuit breakers for engineering teams.</p>
+                        </div>
+                        <div class="p-3 rounded-xl bg-dark-bg/60 border border-dark-border">
+                            <span class="text-cyan-400 font-mono font-bold">Q4:</span>
+                            <span class="text-white font-semibold ml-1">Clinician-Validated Health Study.</span>
+                            <p class="text-[11px] text-slate-400 mt-1">Launch consented, privacy-first postpartum pilot study with new mothers in Vietnam using GinBaby; submit findings to public health conferences.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder & Contact Section -->
+    <section id="contact" class="py-24 border-t border-dark-border bg-dark-card/40">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-emerald-500 to-amber-400 flex items-center justify-center font-bold text-dark-bg text-2xl mx-auto mb-6 shadow-xl">
+                G
+            </div>
+            <h3 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
+                Let's Build the Sovereign AI Future Together
+            </h3>
+            <p class="text-slate-400 text-sm max-w-xl mx-auto mb-8">
+                Whether you are an Anthropic ecosystem evaluator, angel investor, grant foundation officer, or fellow researcher, we welcome inquiries, pilot partnerships, and technical discussions.
+            </p>
+            
+            <div class="inline-flex flex-wrap items-center justify-center gap-4 p-3 rounded-2xl border border-dark-border bg-dark-bg mb-10">
+                <a href="https://github.com/trituenguyen97" target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono text-white hover:text-emerald-400 transition-colors">
+                    <i data-lucide="github" class="w-4 h-4"></i>
+                    <span>github.com/trituenguyen97</span>
+                </a>
+                <span class="text-slate-700 hidden sm:inline">•</span>
+                <span class="flex items-center gap-2 px-4 py-2 text-xs font-mono text-emerald-400">
+                    <i data-lucide="globe" class="w-4 h-4"></i>
+                    <span>gin.info.vn</span>
+                </span>
+                <span class="text-slate-700 hidden sm:inline">•</span>
+                <a href="mailto:trituenguyen97@gmail.com" class="flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono text-slate-300 hover:text-white transition-colors">
+                    <i data-lucide="mail" class="w-4 h-4"></i>
+                    <span>trituenguyen97@gmail.com</span>
+                </a>
+            </div>
+
+            <div class="text-xs text-slate-400 font-mono">
+                GIN AI Research Lab © 2026 • Registered Domain: gin.info.vn
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-dark-border py-8 text-center text-xs text-slate-400">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+                GIN AI Research (<a href="https://gin.info.vn" class="text-slate-400 hover:text-emerald-400">gin.info.vn</a>) — Founded by Tri Tue Nguyen
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="https://github.com/trituenguyen97/ai-live-sensei-classroom" class="hover:text-slate-200">Sensei Classroom</a>
+                <a href="https://github.com/trituenguyen97/Bit-Translate" class="hover:text-slate-200">Bit-Translate</a>
+                <a href="https://github.com/trituenguyen97/KS-Dashboard" class="hover:text-slate-200">KS-Dashboard</a>
+                <a href="https://github.com/trituenguyen97/TransX" class="hover:text-slate-200">TransX</a>
+                <a href="https://github.com/trituenguyen97/ginbaby" class="hover:text-slate-200">GinBaby</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
