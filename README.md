@@ -1,6 +1,6 @@
-# GIN AI Research Lab — Landing Page (`gin.info.vn`)
+# GIN AI Research Lab — Official Portal (`gin.info.vn`)
 
-Official open-source landing page and venture pitch portal for **GIN AI Research** ([gin.info.vn](https://gin.info.vn)).
+Official open-source research and engineering portal for **GIN AI Research** ([gin.info.vn](https://gin.info.vn)).
 
 ## Portfolio Overview
 
